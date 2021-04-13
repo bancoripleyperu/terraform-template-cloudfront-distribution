@@ -3,9 +3,9 @@ module "lambda-function" {
   version = "0.0.2"
 
   function_name = random_string.this.result
-  handler       = "lambda_function.lambda_handler"
+  handler       = "index.handler"
   runtime       = "nodejs12.x"
-  source_dir    = "./xss/"
+  source_dir    = "./app/"
   role          = module.iam-role.values.arn
   publish       = true
   tags          = var.tags

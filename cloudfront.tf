@@ -1,6 +1,6 @@
 resource "aws_cloudfront_origin_access_identity" "this" {}
 
-module "this" {
+module "cloudfront-distribution" {
   source  = "bancoripleyperu/cloudfront-distribution/aws"
   version = "0.0.6"
 
@@ -12,7 +12,7 @@ module "this" {
   origin_access_identity = aws_cloudfront_origin_access_identity.this.cloudfront_access_identity_path
   tags                   = var.tags
 
-  lambda_function_association = [{
+  lambda_function_association = var.lambda_function_association == false ? [] : [{
     event_type   = "viewer-response"
     lambda_arn   = module.lambda-function.values.qualified_arn
     include_body = false
