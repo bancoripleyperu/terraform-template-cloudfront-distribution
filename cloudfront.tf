@@ -10,7 +10,7 @@ module "cloudfront-distribution" {
   aliases                = var.aliases
   default_root_object    = var.default_root_object
   origin_access_identity = aws_cloudfront_origin_access_identity.this.cloudfront_access_identity_path
-  tags                   = var.tags
+  viewer_certificate     = var.viewer_certificate
 
   lambda_function_association = var.lambda_function_association == false ? [] : [{
     event_type   = "viewer-response"
@@ -38,4 +38,6 @@ module "cloudfront-distribution" {
       error_caching_min_ttl = 60
     }
   ]
+
+  tags = var.tags
 }
