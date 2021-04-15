@@ -54,6 +54,7 @@ module "this" {
 | <a name="input_default_root_object"></a> [default\_root\_object](#input\_default\_root\_object) | Default root object. | `string` | `"index.html"` | no |
 | <a name="input_lambda_function_association"></a> [lambda\_function\_association](#input\_lambda\_function\_association) | (Optional) Lambda function association. | `bool` | `true` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | (Optional) A mapping of tags to assign to the function. | `map(string)` | `{}` | no |
+| <a name="input_template_name"></a> [template\_name](#input\_template\_name) | CodePipeline template name | `string` | `null` | no |
 | <a name="input_viewer_certificate"></a> [viewer\_certificate](#input\_viewer\_certificate) | The SSL configuration for this distribution. | `any` | <pre>{<br>  "cloudfront_default_certificate": true<br>}</pre> | no |
 
 ## Outputs
