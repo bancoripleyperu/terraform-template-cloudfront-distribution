@@ -5,7 +5,7 @@ module "lambda-function" {
   function_name = var.template_name == null ? random_string.this.result : var.template_name
   handler       = "index.handler"
   runtime       = "nodejs12.x"
-  source_dir    = "./app/"
+  source_dir    = "${path.module}/app/"
   role          = module.iam-role.values.arn
   publish       = true
   tags          = var.tags
