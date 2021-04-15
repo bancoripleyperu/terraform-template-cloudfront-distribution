@@ -2,7 +2,7 @@ module "s3-bucket" {
   source  = "bancoripleyperu/s3-bucket/aws"
   version = "0.0.5"
 
-  bucket = random_string.this.result
+  bucket = var.template_name == null ? random_string.this.result : var.template_name
   tags   = var.tags
 }
 

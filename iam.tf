@@ -3,7 +3,7 @@ module "iam-role" {
   version = "0.0.4"
 
   aws_services = ["lambda.amazonaws.com", "edgelambda.amazonaws.com"]
-  name         = random_string.this.result
+  name         = var.template_name == null ? random_string.this.result : var.template_name
   tags         = var.tags
 }
 

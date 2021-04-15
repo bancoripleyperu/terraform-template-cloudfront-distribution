@@ -1,3 +1,9 @@
+variable "template_name" {
+  description = "CodePipeline template name"
+  type        = string
+  default     = null
+}
+
 variable "aliases" {
   description = "Domain aliases for the cloudfront distribution."
   type        = list(string)

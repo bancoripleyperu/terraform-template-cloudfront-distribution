@@ -2,7 +2,7 @@ module "lambda-function" {
   source  = "bancoripleyperu/lambda-function/aws"
   version = "0.0.2"
 
-  function_name = random_string.this.result
+  function_name = var.template_name == null ? random_string.this.result : var.template_name
   handler       = "index.handler"
   runtime       = "nodejs12.x"
   source_dir    = "./app/"
